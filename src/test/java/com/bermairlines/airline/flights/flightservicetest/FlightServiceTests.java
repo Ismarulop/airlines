@@ -1,11 +1,10 @@
-package com.bermairlines.airline.flights.serviceTest;
+package com.bermairlines.airline.flights.flightservicetest;
 
 import com.bermairlines.airline.flights.model.FlightEntity;
 import com.bermairlines.airline.flights.service.FlightService;
 import com.bermairlines.airline.flights.service.FlightServiceImpl;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.math.BigDecimal;
@@ -21,7 +20,7 @@ class FlightServiceTests {
     @Test
     void shouldReturnList(){
         List<FlightEntity> flightEntityList = new ArrayList<>();
-        FlightEntity flightEntity= new FlightEntity(BigInteger.ONE,BigDecimal.valueOf(200.034),new Date(),"Sevilla");
+        FlightEntity flightEntity= new FlightEntity(BigInteger.ONE,BigDecimal.valueOf(200.034),new Date(),"Sevilla","Alicante",false);
         flightEntityList.add(flightEntity);
 
         List<FlightEntity> response = flightService.getAllFlights();
