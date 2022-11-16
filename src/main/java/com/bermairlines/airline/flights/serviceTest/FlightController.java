@@ -29,7 +29,7 @@ public class FlightController {
 //    }
 
     @GetMapping("/origins")
-    public List<String> getFlightByOrigin(@PathVariable String id){
+    public List<String> getFlightByOrigin(){
         return flightService.getOrigins();
     }
 }
