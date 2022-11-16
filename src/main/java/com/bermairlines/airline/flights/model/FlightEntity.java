@@ -1,5 +1,6 @@
 package com.bermairlines.airline.flights.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 
@@ -9,18 +10,14 @@ import java.util.Date;
 
 
 @Data
+@AllArgsConstructor
 public class FlightEntity {
     private BigInteger id;
     private BigDecimal price;
     private Date flightDate;
     private String origin;
     private String destination;
+    private Boolean ida;
 
-    public FlightEntity(BigInteger id, BigDecimal price, Date flightDate,String origin) {
-        this.id=id;
-        this.price=price;
-        this.flightDate=flightDate;
-        this.origin=origin;
 
-    }
 }

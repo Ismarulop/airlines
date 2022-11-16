@@ -9,5 +9,5 @@ public interface FlightService {
 
     FlightEntity getFlightById();
 
-    List<String> getOrigins();
+//    List<String> getOrigins(String origin);
 }

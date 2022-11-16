@@ -2,16 +2,17 @@ package com.bermairlines.airline.flights.serviceTest;
 
 import com.bermairlines.airline.flights.model.FlightEntity;
 import com.bermairlines.airline.flights.service.FlightService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/flights")
+@CrossOrigin
 public class FlightController {
 
     @Autowired
@@ -19,17 +20,16 @@ public class FlightController {
 
 
     @GetMapping("/allflights")
-    public List<FlightEntity> getAllFlights(){
-        return flightService.getAllFlights();
+    public ResponseEntity<List<FlightEntity>> getAllFlights(){
+        List<FlightEntity> response =flightService.getAllFlights();
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-//    @GetMapping("/{id}")
-//    public String getFlightByOrigin(@PathVariable String id) throws Exception {
-//       flightService.getFlightById();
+
+
+
+//    @GetMapping("/origins/{origin}")
+//    public List<String> getFlightByOrigin(@PathVariable String Origin){
+//        return flightService.getOrigins(origin);
 //    }
-
-    @GetMapping("/origins")
-    public List<String> getFlightByOrigin(){
-        return flightService.getOrigins();
-    }
 }
